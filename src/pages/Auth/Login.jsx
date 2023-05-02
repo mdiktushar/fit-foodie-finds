@@ -1,11 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../providers/FirebaseAuthProvider";
 
 const Login = () => {
+  const { singIn, googleLogin } = useContext(AuthContext);
+  const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const [error, setError] = useState('');
+  const goTo = location.state?.from?.pathname || `/`;
 
   const loginHandler = (event) => {
     event.preventDefault();
@@ -13,8 +18,21 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    console.log(email, password);
-  }
+    // console.log(email, password);
+    singIn(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log("Login Successful: ", user);
+        navigate(goTo, { replace: true });
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+      });
+  };
+
   return (
     <>
       <h2 className="text-center">Login</h2>
@@ -30,7 +48,11 @@ const Login = () => {
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control name="password" type="password" placeholder="Password" />
+          <Form.Control
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
         </Form.Group>
         <Button variant="outline-success" type="submit">
           Login
@@ -44,7 +66,7 @@ const Login = () => {
       </Form>
 
       <div className="text-center">
-        <Button className="mb-3 w-50" variant="outline-danger">
+        <Button onClick={()=> googleLogin(navigate, goTo)} className="mb-3 w-50" variant="outline-danger">
           Google
         </Button>
         <br />

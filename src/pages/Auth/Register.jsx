@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/FirebaseAuthProvider";
 
 const Register = () => {
-  const [error, setError] = useState('');
+  const { createUser } = useContext(AuthContext);
+  const [error, setError] = useState("");
 
-  
   const registerHandler = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -16,19 +17,31 @@ const Register = () => {
     const photo = form.photoUrl.value;
     const password = form.password.value;
 
-    console.log(name, email, photo, password);
+    // console.log(name, email, photo, password);
+    createUser(email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user;
+        console.log(user);
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        // ..
+      });
   };
   return (
     <>
       <h2 className="text-center">Register</h2>
       <p className="text-danger text-center">{error}</p>
       <Form onSubmit={registerHandler} className="w-50 m-auto mb-3">
-        <Form.Group className="mb-3" >
+        <Form.Group className="mb-3">
           <Form.Label>Name address</Form.Label>
           <Form.Control name="name" type="text" placeholder="Enter Name" />
         </Form.Group>
 
-        <Form.Group className="mb-3" >
+        <Form.Group className="mb-3">
           <Form.Label>Email address</Form.Label>
           <Form.Control name="email" type="email" placeholder="Enter email" />
           <Form.Text className="text-muted">
@@ -36,12 +49,12 @@ const Register = () => {
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" >
+        <Form.Group className="mb-3">
           <Form.Label>Photo Url</Form.Label>
           <Form.Control name="photoUrl" type="text" placeholder="Photo Url" />
         </Form.Group>
 
-        <Form.Group className="mb-3" >
+        <Form.Group className="mb-3">
           <Form.Label>Password</Form.Label>
           <Form.Control
             name="password"

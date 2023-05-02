@@ -1,12 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import logo from "../../../assets/images/logo.png";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../providers/FirebaseAuthProvider";
 
 const Header = () => {
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
+
+  const logOutHandler = () => {
+    logOut()
+      .then()
+      .catch((error) => console.log(error));
+  }
+
   return (
     <Navbar bg="light" expand="lg">
       <Container fluid>
@@ -28,9 +39,13 @@ const Header = () => {
             </Link>
           </Nav>
 
-          <Link to={"login"}>
-            <Button variant="outline-success">Login</Button>
-          </Link>
+          {user ? (
+              <Button onClick={logOutHandler} variant="outline-danger">Logout</Button>
+          ) : (
+            <Link to={"login"}>
+              <Button variant="outline-success">Login</Button>
+            </Link>
+          )}
         </Navbar.Collapse>
       </Container>
     </Navbar>
