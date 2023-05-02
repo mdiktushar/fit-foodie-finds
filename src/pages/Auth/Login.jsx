@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/FirebaseAuthProvider";
 
 const Login = () => {
-  const { singIn, googleLogin } = useContext(AuthContext);
+  const { singIn, googleLogin, gitHubLogin } = useContext(AuthContext);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
@@ -70,7 +70,7 @@ const Login = () => {
           Google
         </Button>
         <br />
-        <Button className="mb-3 w-50" variant="outline-dark">
+        <Button onClick={()=> gitHubLogin(navigate, goTo)} className="mb-3 w-50" variant="outline-dark">
           GitHub
         </Button>
       </div>
