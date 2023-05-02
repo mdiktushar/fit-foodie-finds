@@ -16,24 +16,24 @@ const Footer = () => {
         </div>
 
         <div>
-          <a href="" className="me-4 text-reset">
+          <p href="" className="me-4 text-reset">
             <MDBIcon fab icon="facebook-f" />
-          </a>
-          <a href="" className="me-4 text-reset">
+          </p>
+          <p href="" className="me-4 text-reset">
             <MDBIcon fab icon="twitter" />
-          </a>
-          <a href="" className="me-4 text-reset">
+          </p>
+          <p href="" className="me-4 text-reset">
             <MDBIcon fab icon="google" />
-          </a>
-          <a href="" className="me-4 text-reset">
+          </p>
+          <p href="" className="me-4 text-reset">
             <MDBIcon fab icon="instagram" />
-          </a>
-          <a href="" className="me-4 text-reset">
+          </p>
+          <p href="" className="me-4 text-reset">
             <MDBIcon fab icon="linkedin" />
-          </a>
-          <a href="" className="me-4 text-reset">
+          </p>
+          <p href="" className="me-4 text-reset">
             <MDBIcon fab icon="github" />
-          </a>
+          </p>
         </div>
       </section>
 
@@ -46,57 +46,58 @@ const Footer = () => {
                 Company name
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer
-                content. Lorem ipsum dolor sit amet, consectetur adipisicing
-                elit.
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Possimus saepe ex minus totam excepturi esse perspiciatis iure
+                quibusdam explicabo veniam, ut ad inventore hic reprehenderit
+                ipsa, quae rerum aliquid.
               </p>
             </MDBCol>
 
             <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Products</h6>
               <p>
-                <a href="#!" className="text-reset">
-                  Angular
-                </a>
+                <p href="#!" className="text-reset">
+                  Fruit & Vegetables
+                </p>
               </p>
               <p>
-                <a href="#!" className="text-reset">
-                  React
-                </a>
+                <p href="#!" className="text-reset">
+                  Starchy Food
+                </p>
               </p>
               <p>
-                <a href="#!" className="text-reset">
-                  Vue
-                </a>
+                <p href="#!" className="text-reset">
+                  Dairy
+                </p>
               </p>
               <p>
-                <a href="#!" className="text-reset">
-                  Laravel
-                </a>
+                <p href="#!" className="text-reset">
+                  Fat
+                </p>
               </p>
             </MDBCol>
 
             <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
-                <a href="#!" className="text-reset">
+                <p href="#!" className="text-reset">
                   Pricing
-                </a>
+                </p>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <p href="#!" className="text-reset">
                   Settings
-                </a>
+                </p>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <p href="#!" className="text-reset">
                   Orders
-                </a>
+                </p>
               </p>
               <p>
-                <a href="#!" className="text-reset">
+                <p href="#!" className="text-reset">
                   Help
-                </a>
+                </p>
               </p>
             </MDBCol>
 
@@ -125,10 +126,10 @@ const Footer = () => {
         className="text-center p-4"
         style={{ backgroundColor: "rgba(0, 0, 0, 0.05)" }}
       >
-        © 2021 Copyright:
-        <a className="text-reset fw-bold" href="https://mdbootstrap.com/">
-          MDBootstrap.com
-        </a>
+        © 2023 Copyright:
+        <p className="text-reset fw-bold text-decoration-none">
+          Fit Foodie Finds
+        </p>
       </div>
     </MDBFooter>
   );
