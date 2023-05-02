@@ -52,48 +52,48 @@ const Footer = () => {
             <MDBCol md="2" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Products</h6>
               <p>
-                <p href="#!" className="text-reset">
+                <span href="#!" className="text-reset">
                   Fruit & Vegetables
-                </p>
+                </span>
               </p>
               <p>
-                <p href="#!" className="text-reset">
+                <span href="#!" className="text-reset">
                   Starchy Food
-                </p>
+                </span>
               </p>
               <p>
-                <p href="#!" className="text-reset">
+                <span href="#!" className="text-reset">
                   Dairy
-                </p>
+                </span>
               </p>
               <p>
-                <p href="#!" className="text-reset">
+                <span href="#!" className="text-reset">
                   Fat
-                </p>
+                </span>
               </p>
             </MDBCol>
 
             <MDBCol md="3" lg="2" xl="2" className="mx-auto mb-4">
               <h6 className="text-uppercase fw-bold mb-4">Useful links</h6>
               <p>
-                <p href="#!" className="text-reset">
+                <span href="#!" className="text-reset">
                   Pricing
-                </p>
+                </span>
               </p>
               <p>
-                <p href="#!" className="text-reset">
+                <span href="#!" className="text-reset">
                   Settings
-                </p>
+                </span>
               </p>
               <p>
-                <p href="#!" className="text-reset">
+                <span href="#!" className="text-reset">
                   Orders
-                </p>
+                </span>
               </p>
               <p>
-                <p href="#!" className="text-reset">
+                <span href="#!" className="text-reset">
                   Help
-                </p>
+                </span>
               </p>
             </MDBCol>
 

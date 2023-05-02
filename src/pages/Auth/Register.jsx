@@ -4,44 +4,62 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+  const [error, setError] = useState('');
+
+  
+  const registerHandler = (event) => {
+    event.preventDefault();
+    const form = event.target;
+
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photoUrl.value;
+    const password = form.password.value;
+
+    console.log(name, email, photo, password);
+  };
   return (
     <>
       <h2 className="text-center">Register</h2>
-      <Form className="w-50 m-auto mb-3">
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+      <p className="text-danger text-center">{error}</p>
+      <Form onSubmit={registerHandler} className="w-50 m-auto mb-3">
+        <Form.Group className="mb-3" >
           <Form.Label>Name address</Form.Label>
-          <Form.Control type="text" placeholder="Enter Name" />
+          <Form.Control name="name" type="text" placeholder="Enter Name" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" >
           <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
+          <Form.Control name="email" type="email" placeholder="Enter email" />
           <Form.Text className="text-muted">
             We'll never share your email with anyone else.
           </Form.Text>
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-3" >
           <Form.Label>Photo Url</Form.Label>
-          <Form.Control type="text" placeholder="Photo Url" />
+          <Form.Control name="photoUrl" type="text" placeholder="Photo Url" />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3" >
           <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
+          <Form.Control
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
         </Form.Group>
         <Button variant="outline-success" type="submit">
           Register
         </Button>
 
         <p>
-          Already have an account...!{" "}
+          Already have an account...!
           <Link className="Link authLink" to={`/login`}>
             Login
           </Link>
         </p>
       </Form>
-
     </>
   );
 };
