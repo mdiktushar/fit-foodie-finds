@@ -1,9 +1,21 @@
 .Link {
     text-decoration: none;
+}
+
+.navLink {
     color: gray;
 }
 
-.Link:hover {
+.navLink:hover {
     font-weight: bold;
     color: rgb(112, 112, 112);
+}
+
+.authLink {
+    color: green;
+}
+
+.authLink:hover {
+    font-weight: bold;
+    color: rgb(1, 95, 1);
 }
