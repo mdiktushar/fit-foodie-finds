@@ -3,6 +3,7 @@ import Card from "react-bootstrap/Card";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Button } from "react-bootstrap";
+import { toast } from "react-toastify";
 
 const Recipe = ({ recipe }) => {
   const [favorite, setFavorite] = useState(true);
@@ -10,6 +11,7 @@ const Recipe = ({ recipe }) => {
   let count = 0;
 
   const favoriteHandler = () => {
+    toast(`${name} is added to favorites...!`);
     setFavorite(!favorite);
   };
 
@@ -24,11 +26,15 @@ const Recipe = ({ recipe }) => {
           ))}
         </ul>
         <Card.Text>{cooking_method}</Card.Text>
-        <Card.Text className="d-flex align-items-center">
+        <div className="d-flex align-items-center">
           <Rating style={{ maxWidth: 80 }} value={rating} readOnly />
           <samp className="ms-2">{rating}</samp>
-        </Card.Text>
-        {favorite && <Button onClick={favoriteHandler} variant="outline-success">Favorite</Button>}
+        </div>
+        {favorite && (
+          <Button onClick={favoriteHandler} variant="outline-success">
+            Favorite
+          </Button>
+        )}
       </Card.Body>
     </Card>
   );
