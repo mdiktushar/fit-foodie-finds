@@ -1,12 +1,13 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import Chefs from '../../components/Chefs/Chefs';
 
 const Home = () => {
     const chefs = useLoaderData()
-    console.log(chefs);
+
     return (
         <div>
-            home
+            <Chefs chefs = {chefs} />
         </div>
     );
 };
