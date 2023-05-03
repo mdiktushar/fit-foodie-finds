@@ -1,7 +1,6 @@
 import React from "react";
-import hero1 from "../../assets/images/hero1.jpg";
+import banner from "../../assets/images/banner.jpg";
 import logo from "../../assets/images/logo.png";
-
 
 const Banner = () => {
   return (
@@ -14,9 +13,7 @@ const Banner = () => {
         </h1>
         <div className="col-2"></div>
       </div>
-      <div className="col-12 col-md-6">
-        <img className="w-100" src={hero1} alt=""/>
-      </div>
+      <img className="col-12 col-md-6 p-0 m-0" src={banner} alt="" />
     </div>
   );
 };

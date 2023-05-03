@@ -32,7 +32,7 @@ const Register = () => {
         profileInfo(name, photo)
         // Signed in
         const user = userCredential.user;
-        console.log(user);
+        // console.log(user);
         // ...
         navigate(goTo, { replace: true });
       })

@@ -38,6 +38,7 @@ const route = createBrowserRouter([
             <ChefProfile />
           </PrivateRoute>
         ),
+        loader: (({params})=> fetch(`http://localhost:5000/chef/${params.id}`))
       },
     ],
   },

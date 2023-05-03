@@ -19,3 +19,8 @@
     font-weight: bold;
     color: rgb(1, 95, 1);
 }
+
+.banner2Opacity {
+    background-color: wheat;
+    opacity: 0.2;
+}
