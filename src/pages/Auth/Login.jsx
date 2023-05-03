@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/FirebaseAuthProvider";
+import isEmail from "validator/es/lib/isEmail";
 
 const Login = () => {
   const { singIn, googleLogin, gitHubLogin } = useContext(AuthContext);
@@ -14,9 +15,23 @@ const Login = () => {
 
   const loginHandler = (event) => {
     event.preventDefault();
+    setError("");
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
+
+    if (email.length == 0) {
+      setError("Not an Email");
+      return;
+    }
+    if (password.length < 6) {
+      setError(`Password length can't be less than 6`);
+      return;
+    }
+    if (!isEmail(email)) {
+      setError("Not an Email");
+      return;
+    }
 
     // console.log(email, password);
     singIn(email, password)
@@ -30,6 +45,7 @@ const Login = () => {
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
+        setError(error.message);
       });
   };
 
@@ -66,11 +82,19 @@ const Login = () => {
       </Form>
 
       <div className="text-center">
-        <Button onClick={()=> googleLogin(navigate, goTo)} className="mb-3 w-50" variant="outline-danger">
+        <Button
+          onClick={() => googleLogin(navigate, goTo)}
+          className="mb-3 w-50"
+          variant="outline-danger"
+        >
           Google
         </Button>
         <br />
-        <Button onClick={()=> gitHubLogin(navigate, goTo)} className="mb-3 w-50" variant="outline-dark">
+        <Button
+          onClick={() => gitHubLogin(navigate, goTo)}
+          className="mb-3 w-50"
+          variant="outline-dark"
+        >
           GitHub
         </Button>
       </div>

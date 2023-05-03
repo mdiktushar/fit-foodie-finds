@@ -3,9 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/FirebaseAuthProvider";
-// import { getAuth, updateProfile } from "firebase/auth";
-// const auth = getAuth();
-
+import isEmail from "validator/es/lib/isEmail";
 
 const Register = () => {
   const { createUser, profileInfo } = useContext(AuthContext);
@@ -25,11 +23,24 @@ const Register = () => {
     const photo = form.photoUrl.value;
     const password = form.password.value;
 
+    if (email.length == 0) {
+      setError("Not an Email");
+      return;
+    }
+    if (password.length < 6) {
+      setError(`Password length can't be less than 6`);
+      return;
+    }
+    if (!isEmail(email)) {
+      setError("Not an Email");
+      return;
+    }
+
     // console.log(name, email, photo, password);
     createUser(email, password)
       .then((userCredential) => {
         // adding display name and photo
-        profileInfo(name, photo)
+        profileInfo(name, photo);
         // Signed in
         const user = userCredential.user;
         // console.log(user);
