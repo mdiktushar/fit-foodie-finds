@@ -1,15 +1,23 @@
 import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/FirebaseAuthProvider";
+// import { getAuth, updateProfile } from "firebase/auth";
+// const auth = getAuth();
+
 
 const Register = () => {
-  const { createUser } = useContext(AuthContext);
+  const { createUser, profileInfo } = useContext(AuthContext);
   const [error, setError] = useState("");
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const goTo = `/`;
 
   const registerHandler = (event) => {
     event.preventDefault();
+    setError("");
     const form = event.target;
 
     const name = form.name.value;
@@ -20,15 +28,18 @@ const Register = () => {
     // console.log(name, email, photo, password);
     createUser(email, password)
       .then((userCredential) => {
+        // adding display name and photo
+        profileInfo(name, photo)
         // Signed in
         const user = userCredential.user;
         console.log(user);
         // ...
+        navigate(goTo, { replace: true });
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        // ..
+        setError(error.message);
       });
   };
   return (

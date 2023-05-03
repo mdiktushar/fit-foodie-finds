@@ -15,6 +15,7 @@ const route = createBrowserRouter([
       {
         path: `/`,
         element: <Home />,
+        loader: (()=> fetch('http://localhost:5000/'))
       },
       {
         path: `/login`,

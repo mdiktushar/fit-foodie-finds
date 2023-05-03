@@ -5,6 +5,7 @@ import {
   createUserWithEmailAndPassword,
   getAuth,
   onAuthStateChanged,
+  updateProfile,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
@@ -51,7 +52,17 @@ const FirebaseAuthProvider = ({ children }) => {
         console.log(error);
       });
   };
-
+  const profileInfo = (name, photo) => {
+    updateProfile(auth.currentUser, {
+      displayName: name, photoURL: photo
+    }).then(() => {
+      // Profile updated!
+      // ...
+    }).catch((error) => {
+      // An error occurred
+      // ...
+    });
+  }
   const singIn = (email, password) => {
     setLoading(true);
     return signInWithEmailAndPassword(auth, email, password);
@@ -77,6 +88,7 @@ const FirebaseAuthProvider = ({ children }) => {
     user,
     loading,
     createUser,
+    profileInfo,
     googleLogin,
     gitHubLogin,
     singIn,
