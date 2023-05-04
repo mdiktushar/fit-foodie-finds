@@ -1,4 +1,5 @@
 import React from "react";
+import LazyLoad from "react-lazyload";
 
 const ChefBanner = ({ chef }) => {
   const { id, name, photo, bio, likes, years_of_experience, recipe } = chef;
@@ -6,7 +7,12 @@ const ChefBanner = ({ chef }) => {
   return (
     <div className="bg-light">
       <div className="row">
-        <img className="rounded img-fluid col-12 col-md-6" src={photo} alt="" />
+        <div className="col-12 col-md-6">
+          <LazyLoad>
+            <img className="rounded img-fluid " src={photo} alt="" />
+          </LazyLoad>
+        </div>
+
         <div className="lh-sm col-12 col-md-6 d-flex flex-column justify-content-center align-items-center p-5">
           <h5 className="display-3">{name}</h5>
           <p className="small lh-sm text-center">{bio}</p>

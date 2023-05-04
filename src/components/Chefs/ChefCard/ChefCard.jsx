@@ -1,5 +1,6 @@
 import React from "react";
 import { Button } from "react-bootstrap";
+import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 
 const ChefCard = ({ chef }) => {
@@ -7,12 +8,14 @@ const ChefCard = ({ chef }) => {
   return (
     <div className="row p-1">
       <div className="col-6">
-        <img
-          style={{ height: 166, width: 166 }}
-          className="img-fluid rounded"
-          src={photo}
-          alt={name}
-        />
+        <LazyLoad>
+          <img
+            style={{ height: 166, width: 166 }}
+            className="img-fluid rounded"
+            src={photo}
+            alt={name}
+          />
+        </LazyLoad>
       </div>
       <div className="col-6 p-1 lh-1">
         <p className="lead">{name}</p>
@@ -29,7 +32,9 @@ const ChefCard = ({ chef }) => {
         </div>
 
         <Link to={`chef/${id}`}>
-          <Button className="btn-sm" variant="success">View</Button>
+          <Button className="btn-sm" variant="success">
+            View
+          </Button>
         </Link>
       </div>
     </div>
