@@ -1,6 +1,8 @@
 GitHub Repository: https://github.com/programming-hero-web-course-4/b7a10-chef-recipe-hunter-client-side-mdiktushar
 <br>
-Website Link:
+Website Link: https://fit-foodie-finds-eceb7.web.app
+<br>
+Server: https://rest-server-theta.vercel.app/
 <br>
 
 <h1>About Project</h1>
