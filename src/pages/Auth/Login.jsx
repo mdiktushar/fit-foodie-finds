@@ -38,7 +38,7 @@ const Login = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        // console.log("Login Successful: ", user);
+        console.log("Login Successful: ", user);
         navigate(goTo, { replace: true });
         // ...
       })

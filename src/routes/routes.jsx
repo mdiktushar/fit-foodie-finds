@@ -6,6 +6,7 @@ import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import PrivateRoute from "./PrivateRoute";
 import ChefProfile from "../pages/ChefProfile/ChefProfile";
+import AuthLayout from "../layout/AuthLayout/AuthLayout";
 
 const route = createBrowserRouter([
   {
@@ -17,6 +18,12 @@ const route = createBrowserRouter([
         element: <Home />,
         loader: (()=> fetch('http://localhost:5000/'))
       },
+    ],
+  },
+  {
+    path: `/`,
+    element: <AuthLayout />,
+    children: [
       {
         path: `/login`,
         element: <Login />,

@@ -8,14 +8,13 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/FirebaseAuthProvider";
 
 const Header = () => {
-  const { user, logOut } = useContext(AuthContext);
-  // console.log(user);
-
+  const { user, logOut,  loading} = useContext(AuthContext);
+  console.log(user);
   const logOutHandler = () => {
     logOut()
       .then()
       .catch((error) => console.log(error));
-  }
+  };
 
   return (
     <Navbar bg="light" expand="lg">
@@ -39,7 +38,21 @@ const Header = () => {
           </Nav>
 
           {user ? (
-              <Button onClick={logOutHandler} variant="outline-danger">Logout</Button>
+            <div className="d-flex">
+
+              <span
+                className="d-inline-block"
+                tabIndex="0"
+                data-toggle="tooltip"
+                title={user?.displayName || "No Name"}
+              >
+
+                <img className="rounded-circle me-2" src={user?.photoURL || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png'} width={40} alt="" />
+              </span>
+              <Button onClick={logOutHandler} variant="outline-danger">
+                Logout
+              </Button>
+            </div>
           ) : (
             <Link to={"login"}>
               <Button variant="outline-success">Login</Button>
