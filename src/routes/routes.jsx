@@ -7,6 +7,7 @@ import Register from "../pages/Auth/Register";
 import PrivateRoute from "./PrivateRoute";
 import ChefProfile from "../pages/ChefProfile/ChefProfile";
 import AuthLayout from "../layout/AuthLayout/AuthLayout";
+import Page404 from "../pages/404/Page404";
 
 const route = createBrowserRouter([
   {
@@ -49,6 +50,16 @@ const route = createBrowserRouter([
       },
     ],
   },
+  {
+    path: '*',
+    element: <AuthLayout />,
+    children: [
+      {
+        path: '*',
+        element: <Page404 />
+      }
+    ]
+  }
 ]);
 
 export default route;
