@@ -8,6 +8,7 @@ import PrivateRoute from "./PrivateRoute";
 import ChefProfile from "../pages/ChefProfile/ChefProfile";
 import Page404 from "../pages/404/Page404";
 import CommonLayout from "../layout/CommonLayout/CommonLayout";
+import Blog from "../pages/Blog/Blog";
 
 const route = createBrowserRouter([
   {
@@ -30,9 +31,13 @@ const route = createBrowserRouter([
         element: <Login />,
       },
       {
-        path: "/register",
+        path: `/register`,
         element: <Register />,
       },
+      {
+        path: `/blog`,
+        element: <Blog />
+      }
     ],
   },
   {
