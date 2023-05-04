@@ -1,10 +1,25 @@
-import React from "react";
-import { Container } from "react-bootstrap";
+import React, { useRef } from "react";
+import { Button, Container } from "react-bootstrap";
+import ReactToPdf from "react-to-pdf";
 
 const Blog = () => {
+  const ref = React.createRef();
   return (
     <div>
-      <Container>
+      <div
+        style={{ minHeight: 300 }}
+        className="text-center bg-light d-flex align-items-center"
+      >
+        <ReactToPdf targetRef={ref} filename="Blog.pdf">
+          {({ toPdf }) => (
+            <Button onClick={toPdf} className="m-auto" variant="outline-danger">
+              Create PDF
+            </Button>
+          )}
+        </ReactToPdf>
+      </div>
+
+      <Container ref={ref}>
         <ul>
           <li>
             <p className="font-weight-normal">
@@ -108,7 +123,7 @@ const Blog = () => {
             <p className="font-weight-normal">
               Tell us the difference between nodejs and express js.
             </p>
-            <li className="small">
+            <div className="small">
               <p>
                 Node.js is an open-source, server-side JavaScript runtime that
                 allows developers to build scalable and efficient network
@@ -134,7 +149,7 @@ const Blog = () => {
                 and Express.js provides a set of powerful tools and features for
                 building web applications with Node.js.
               </p>
-            </li>
+            </div>
           </li>
           <li>
             <p className="font-weight-normal">
