@@ -25,6 +25,7 @@
     opacity: 0.2;
 }
 
-.omeletBackground {
-    background-image: url("./image/omelet.jpg");
+.active {
+    font-weight: bold;
+    color: rgb(1, 20, 29);
 }

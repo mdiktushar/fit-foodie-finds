@@ -2,10 +2,10 @@ import React from "react";
 
 const Welcome = () => {
   return (
-    <div className="text-center mt-4 omeletBackground text-white">
+    <div className="text-center mt-4 text-gray">
       <h1 className="display-5 pt-5 px-2">The Legacy of French Food</h1>
       <hr />
-      <p className="small px-2 py-5">
+      <p className="small px-2">
         The legacy of French food is unparalleled in the world of cuisine.
         French cuisine is renowned for its sophistication, elegance, and
         attention to detail, and has been a major influence on global culinary

@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import logo from "../../../assets/images/logo.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { AuthContext } from "../../../providers/FirebaseAuthProvider";
 
 const Header = () => {
@@ -29,12 +29,12 @@ const Header = () => {
             style={{ maxHeight: "100px" }}
             navbarScroll
           >
-            <Link className="Link navLink me-5" to={`/`}>
+            <NavLink className="Link navLink me-5" to={`/`}>
               Home
-            </Link>
-            <Link className="Link navLink me-5" to={`blog`}>
+            </NavLink>
+            <NavLink className="Link navLink me-5" to={`blog`}>
               Blog
-            </Link>
+            </NavLink>
           </Nav>
 
           {user ? (
@@ -54,9 +54,9 @@ const Header = () => {
               </Button>
             </div>
           ) : (
-            <Link to={"login"}>
+            <NavLink to={"login"}>
               <Button variant="outline-success">Login</Button>
-            </Link>
+            </NavLink>
           )}
         </Navbar.Collapse>
       </Container>
