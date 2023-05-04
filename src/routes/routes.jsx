@@ -6,8 +6,8 @@ import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import PrivateRoute from "./PrivateRoute";
 import ChefProfile from "../pages/ChefProfile/ChefProfile";
-import AuthLayout from "../layout/AuthLayout/AuthLayout";
 import Page404 from "../pages/404/Page404";
+import CommonLayout from "../layout/CommonLayout/CommonLayout";
 
 const route = createBrowserRouter([
   {
@@ -23,7 +23,7 @@ const route = createBrowserRouter([
   },
   {
     path: `/`,
-    element: <AuthLayout />,
+    element: <CommonLayout />,
     children: [
       {
         path: `/login`,
@@ -52,7 +52,7 @@ const route = createBrowserRouter([
   },
   {
     path: '*',
-    element: <AuthLayout />,
+    element: <CommonLayout />,
     children: [
       {
         path: '*',

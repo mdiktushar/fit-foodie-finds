@@ -24,3 +24,7 @@
     background-color: wheat;
     opacity: 0.2;
 }
+
+.omeletBackground {
+    background-image: url("./image/omelet.jpg");
+}
