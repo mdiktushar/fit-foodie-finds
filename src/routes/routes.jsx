@@ -18,7 +18,7 @@ const route = createBrowserRouter([
       {
         path: `/`,
         element: <Home />,
-        loader: (()=> fetch('http://localhost:5000/'))
+        loader: (()=> fetch('https://rest-server-theta.vercel.app/'))
       },
     ],
   },
@@ -51,7 +51,7 @@ const route = createBrowserRouter([
             <ChefProfile />
           </PrivateRoute>
         ),
-        loader: (({params})=> fetch(`http://localhost:5000/chef/${params.id}`))
+        loader: (({params})=> fetch(`https://rest-server-theta.vercel.app/chef/${params.id}`))
       },
     ],
   },
